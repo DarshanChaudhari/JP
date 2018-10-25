@@ -5,7 +5,8 @@ import java.util.*;
 public class BookDAOImpl implements BookDAO {
     private LinkedList<Book> bookList=new LinkedList<>();
     @Override
-    public void add(Book book) {
+    public void add(Book book)
+    {
         bookList.add(book);
     }
 

@@ -1,6 +1,6 @@
 package com.darshan;
 
-public abstract class Account {
+public class Account {
 
     protected int accountNo;
     protected String accountHolder;

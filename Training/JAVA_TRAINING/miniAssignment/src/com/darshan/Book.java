@@ -41,5 +41,4 @@ public class Book {
         return "Book [bookId=" + bookId + ", title=" + title + "]";
     }
 
-
 }

@@ -1,23 +1,45 @@
 package com.darshan;
 
-public class Accounts {
+public abstract class Accounts {
 
-    private String accountNo;
-    private String custName;
-    private double balance;
+    protected int accountNo;
+    protected String custName;
+    protected double balance;
 
-    public Accounts(String accountNo, String custName, double balance){
+
+    public abstract void deposit(double amount);
+
+    public Accounts(int accountNo, String custName, double balance) {
         this.accountNo = accountNo;
         this.custName = custName;
         this.balance = balance;
     }
 
-
-    public void deposit(){
-        System.out.println("Dear " + this.custName + "Amount is deposit in your account");
+    public int getAccountNo() {
+        return accountNo;
     }
 
-    public void withdraw(){
-        System.out.println("Dear " + this.custName + "Amount is withdraw from your account");
+    public void setAccountNo(int accountNo) {
+        this.accountNo = accountNo;
     }
+
+    public String getCustName() {
+        return custName;
+    }
+
+    public void setCustName(String custName) {
+        this.custName = custName;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
+
+    public abstract void withdraw(double amount);
+
+
 }
