@@ -10,4 +10,9 @@ public class Calculator
         public Calculator() {
             System.out.println("New Instance created!!!");
         }
+
+
+        public long addition (long x, long y){
+	    return x+y;
+        }
     }

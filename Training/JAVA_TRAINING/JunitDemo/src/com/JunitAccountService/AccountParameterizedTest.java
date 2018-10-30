@@ -14,11 +14,11 @@ public class AccountParameterizedTest {
 
     private Integer input;
     private Double expectedOutput;
-    private Double inputAmount;
+    private double inputAmount;
 
 
     //Arg sequence should MATCH with Parameter collection
-    public AccountParameterizedTest(Integer input, Double inputAmount, Double expectedOutput) {
+    public AccountParameterizedTest(Integer input, double inputAmount, Double expectedOutput) {
         this.input = input;
         this.expectedOutput = expectedOutput;
         this.inputAmount=inputAmount;
@@ -43,19 +43,20 @@ public class AccountParameterizedTest {
     public static Collection params(){
         List data = new ArrayList();
         //After withdrawing 20000 from A/c 1001, balance should be 0
-        data.add(new Object[]{1001,20000D,0D});
+        data.add(new Object[]{1001,20000,0D});
 
         //After withdrawing 20000 from A/c 1002, balance should be 10000
-        data.add(new Object[]{1002,30000D,10000D});
+        data.add(new Object[]{1002,20000,10000D});
 
         //After withdrawing 20000 from A/c 1003, balance should be 20000
-        data.add(new Object[]{1003,40000D,20000D});
+        data.add(new Object[]{1003,20000,20000D});
         return data;
     }
 
     @Test
     public void testWithdraw(){
+        System.out.println("In Test Withdraw");
         service.withdraw(input,20000);
-        assertEquals(expectedOutput,service.findAccount(input).getAmount() ,0.1);
+        assertEquals(expectedOutput,service.findAccount(input).getAmount() ,0);
     }
 }

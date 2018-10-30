@@ -55,7 +55,7 @@ public class AccountServiceTest {
     @Test
     public void testDepositOnExistingAccount(){
         double beforeAmount = service.findAccount(1001).getAmount();
-        service.deposit(1001,2000);
+        service.deposit(1001,0);
         double afterAmount = service.findAccount(1001).getAmount();
         assertEquals(beforeAmount,afterAmount,0);
     }

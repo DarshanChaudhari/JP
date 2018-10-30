@@ -53,4 +53,9 @@ public class TestCalculator_junit4 {
 		double result = calc.add(100, 50);
 		assertEquals(150, result, 0);
 	}
+
+	@Test
+	public void sum(){
+		assertEquals(4,calc.addition(2,2));
+	}
 }
