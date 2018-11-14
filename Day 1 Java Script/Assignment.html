@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Layout Demo</title>
+    <style>
+        body{
+            margin:0px;
+            padding:0px;
+        }
+        
+        
+        #main .contentPanel{
+            height: 800px;
+            width: 800px;
+            background-color: cadetblue;
+        }
+
+        
+    </style>
+</head>
+<body>
+
+    <script>
+            function moduleSelect()
+            {
+                if(document.forms["myform"].Domain.value == "JEE")
+                {
+                    document.getElementById("Core Java").style.display = "block"; 
+                    document.getElementById("Servlet-JSP").style.display = "block"; 
+                    document.getElementById("Spring").style.display = "block"; 
+                    document.getElementById("C #").style.display = "none"; 
+                }
+                else if (document.forms["myform"].Domain.value == ".NET")
+                {
+                    document.getElementById("Core Java").style.display = "none"; 
+                    document.getElementById("Servlet-JSP").style.display = "none"; 
+                    document.getElementById("Spring").style.display = "none"; 
+                    document.getElementById("C #").style.display = "block"; 
+                }
+               
+            }
+
+            function validate()
+            {
+               if( document.forms["myform"].EmpNumber.value=="" || document.forms["myform"].EmpName.value =="" || document.forms["myform"].MPT.value =="" || document.forms["myform"].MTT.value =="" || document.forms["myform"].Assignment.value =="") 
+                    {
+                        alert("Please filled all the values");
+                    }
+                
+                if(document.forms["myform"].Domain.value != "JEE") {
+               
+                    alert("Please select the Domain");
+                }
+                
+                if(document.forms["myform"].Module.value != ".NET")
+                {
+                    alert("Please select the Module");
+                }
+
+
+                
+               
+            } 
+           
+
+            
+    </script>
+    <table id="main" border=2>        
+        <td class="contentPanel">
+        <form method ="GET" name="myform">
+                Enter Employee Number   :  <input type="text" name="EmpNumber"><br><br>
+                Enter Employee Name     :  <input type="text" name="EmpName"><br><br>                
+                        Choose Domain : <select name="Domain" onchange="moduleSelect()" required>     
+                            <option id="sel" selected>-----------SELECT DOMAIN----------</option>                                       
+                            <option id="jee" >JEE</option>
+                            <option id="net">.NET</option>                                          
+                            </select> <br><br/>
+                        Choose Module : <select name="Module">                                            
+                            <option id="sel" selected>-----------SELECT MODULE----------</option>
+                            <option id="Core Java">Core Java</option>                                          
+                            <option id="Servlet-JSP">Servlet-JSP</option>
+                            <option id="Spring">Spring</option>
+                            <option id="C #">C #</option>
+                            </select> <br><br/>
+                
+                        Enter MPT Marks   :  <input type="text" name="MPT"><br><br>
+                        Enter MTT Marks   :  <input type="text" name="MTT"><br><br>   
+                        Enter Assignment Marks   :  <input type="text" name="Assignment"><br><br>
+                        <input type="button" value="Calculate Module Score" onclick="validate()"/>            
+        </form>
+        </td></tr>    
+    </table>
+</body>
+</html>
