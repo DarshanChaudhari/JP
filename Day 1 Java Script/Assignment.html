@@ -7,13 +7,18 @@
         body{
             margin:0px;
             padding:0px;
+            background-color: cadetblue;
+            
         }
         
         
-        #main .contentPanel{
+        .Employee{
             height: 800px;
             width: 800px;
-            background-color: cadetblue;
+            color: grey;
+            border: 20pt;
+            margin :auto;
+            padding: 20px;            
         }
 
         
@@ -51,15 +56,17 @@
                 if(document.forms["myform"].Domain.value != "JEE") {
                
                     alert("Please select the Domain");
-                }
+                }                              
                 
-                if(document.forms["myform"].Module.value != ".NET")
-                {
-                    alert("Please select the Module");
-                }
-
-
+                var mptmarks =  parseInt(document.getElementById("MPT").value);
+                alert(mptmarks);
+                var mttmarks =  parseInt(document.getElementById("MTT").value);
+                alert(mttmarks);
+                var assignmentmarks =  parseInt(document.getElementById("Assignment").value);
+                alert(assignmentmarks);
                 
+                var score =  ((mptmarks*0.15) + (mttmarks*0.15) + (assignmentmarks*0.7));
+                alert ("Score" + score);
                
             } 
            
@@ -69,8 +76,8 @@
     <table id="main" border=2>        
         <td class="contentPanel">
         <form method ="GET" name="myform">
-                Enter Employee Number   :  <input type="text" name="EmpNumber"><br><br>
-                Enter Employee Name     :  <input type="text" name="EmpName"><br><br>                
+                Enter Employee Number   :  <input type="text" name="EmpNumber" pattern="[0-9]" maxlength="6" required><br><br>
+                Enter Employee Name     :  <input type="text" name="EmpName" pattern="[A-Za-z]{3}" maxlength="30" required><br><br>                
                         Choose Domain : <select name="Domain" onchange="moduleSelect()" required>     
                             <option id="sel" selected>-----------SELECT DOMAIN----------</option>                                       
                             <option id="jee" >JEE</option>
@@ -84,9 +91,9 @@
                             <option id="C #">C #</option>
                             </select> <br><br/>
                 
-                        Enter MPT Marks   :  <input type="text" name="MPT"><br><br>
-                        Enter MTT Marks   :  <input type="text" name="MTT"><br><br>   
-                        Enter Assignment Marks   :  <input type="text" name="Assignment"><br><br>
+                        Enter MPT Marks   :  <input id="MPT" name="MPT"><br><br>
+                        Enter MTT Marks   :  <input id="MTT" name="MTT"><br><br>   
+                        Enter Assignment Marks   :  <input id="Assignment" name="Assignment"><br><br>
                         <input type="button" value="Calculate Module Score" onclick="validate()"/>            
         </form>
         </td></tr>    
